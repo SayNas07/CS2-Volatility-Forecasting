@@ -58,8 +58,8 @@ BIC in-sample on half the panel, ranks last out of sample. The result is robust
 across a sixteen-fold range of EWMA smoothing constants and across four
 cleaning specifications. We argue that volatility in this market carries too
 little stable structure to justify estimating conditional variance parameters.
-The paper appears to be the first formal out-of-sample evaluation of volatility
-forecasts in a virtual asset market.
+The paper appears to be the first out-of-sample evaluation of volatility
+forecasts in a virtual asset market to test them against benchmarks.
 
 \medskip
 \noindent\textbf{Keywords:} volatility forecasting, GARCH, virtual economies,
@@ -168,26 +168,37 @@ standard volatility technology transfers to a market without professional
 intermediation is separate from, and not answered by, the finding that skins
 earn high average returns.
 
-The closest antecedent is an unpublished working paper. \citet{Nikolaenko2025}
-fits ARMA--GARCH(1,1) specifications to two CS:GO skins, tests for
-stationarity and structural breaks, and computes rolling one-step-ahead
-conditional variance forecasts, concluding that predictive power is weak. Our
-paper differs in three respects that we regard as material. First, scope:
-twenty-two items stratified across four price tiers rather than two. Second,
-and centrally, evaluation---forecasts here are scored against parameter-free
-benchmarks using proxy-robust loss functions, with Diebold--Mariano tests and a
-Model Confidence Set, so that ``weak predictive power'' becomes a testable
-comparative claim rather than a qualitative impression. Third, we exploit the
-October 2025 Trade-Up policy change as an identified structural break rather
-than treating breaks solely as a nuisance for stationarity testing.
+The closest antecedent is an unpublished course essay. \citet{Nikolaenko2025}
+fits ARMA--GARCH(1,1) specifications to two CS:GO rifle skins using 826 daily
+observations from the Buff.163 marketplace over July 2021 to February 2024,
+applies Bai--Perron tests for structural breaks in log prices, and computes
+expanding-window one-step-ahead conditional variance forecasts over a 200-day
+evaluation sample, reporting RMSE, MAE and QLIKE and concluding that predictive
+power is modest.
 
-One substantive disagreement is worth recording. \citet{Nikolaenko2025}
-reports little autocorrelation in skin returns, whereas we reject the null of
-no autocorrelation on every item in our panel (Section~\ref{sec:facts}). The
-discrepancy is most plausibly one of sample breadth---two items against
-twenty-four---but it may also reflect our longer window or the weekly seasonal
-documented below, which a short sample would struggle to detect. We note that
-one item, M4A1-S $\vert$ Decimator, appears in both panels.
+We differ in three respects. First, scope: twenty-two items stratified across
+four price tiers, drawn from the Steam Community Market, against two mid-tier
+rifle skins from a secondary venue. Second, and centrally, \emph{comparison}.
+Reporting a QLIKE value establishes that a model produces forecasts; it does
+not establish whether those forecasts are useful, because a loss statistic has
+no interpretation in isolation. Our forecasts are scored against parameter-free
+benchmarks and tested with \citet{DieboldMariano1995} and \citet{HLN2011}, so
+that ``modest predictive power'' becomes a comparative claim with a sign and a
+significance level. Third, breaks: \citet{Nikolaenko2025} treats structural
+breaks as a nuisance motivating the use of returns over price levels, whereas
+we use a single dated policy change as an identified shock and ask how
+forecasts behave across it. His sample ends in February 2024 and therefore
+pre-dates that episode entirely. We note that his concluding section names the
+construction of a daily panel of liquid skins as the natural next step.
+
+One apparent disagreement should be recorded. \citet{Nikolaenko2025} finds
+little serial dependence in returns---BIC selects a white-noise mean for one of
+his two series---whereas we reject the null of no autocorrelation on every item
+in our panel (Section~\ref{sec:facts}). The comparison is not direct: the two
+studies use different marketplaces, currencies, wear grades and sample periods,
+and two series cannot detect a weekly seasonal that is individually significant
+on fewer than half of ours. We regard the results as complementary rather than
+contradictory, but the discrepancy is a natural target for replication.
 
 \paragraph{Volatility model comparison.}
 \citet{HansenLunde2005} is the canonical reference for the proposition that
@@ -1079,7 +1090,9 @@ Nelson, D. B. (1991).
 Nikolaenko, A. (2025).
 \newblock Time-series analysis of CS:GO/CS2 skin prices: stationarity, breaks,
 and volatility forecasting.
-\newblock Working paper, December 2025. Available via ResearchGate.
+\newblock Course essay, Time Series and Panel Data Analysis, International
+College of Economics and Finance, HSE University, December 2025. Unpublished;
+available via ResearchGate.
 
 \bibitem[Nian(2026)]{Nian2026}
 Nian, Z. (2026).
