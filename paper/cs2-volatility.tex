@@ -40,7 +40,7 @@ We study volatility dynamics in the Counter-Strike 2 (CS2) skin market, a
 multi-billion-dollar retail asset market that lacks market makers, arbitrageurs,
 short selling and circuit breakers, and in which a single agent controls supply
 by decree. Using daily median prices for 24 items over 2021--2026, we document
-three facts. First, returns exhibit genuine ARCH effects (22 of 24 items) but
+the following. First, returns exhibit genuine ARCH effects (22 of 24 items) but
 also a \emph{predictable conditional mean} (24 of 24 items), a property that is
 almost absent from equity returns and which we interpret as direct evidence of
 missing arbitrage capital. The predictability is partly seasonal: returns
@@ -100,16 +100,21 @@ produced---without notice, consultation or compensation.
 \end{itemize}
 
 \noindent
-Our contribution is threefold. Section~\ref{sec:facts} documents the
+The paper proceeds in four parts. Section~\ref{sec:facts} documents the
 distributional and dependence properties of daily skin returns, including the
 predictable conditional mean that distinguishes this market sharply from
-equities. Section~\ref{sec:models} estimates AR(1)-GARCH, EGARCH and
-GJR-GARCH specifications with Student-$t$ errors and shows that volatility
-persistence does not vary systematically with item value---a negative result
-that contradicts a gradient visible in a naive proxy.
+equities, a weekly seasonal cycle, and the coexistence of two opposing
+microstructure signatures at different points of the price distribution.
+Section~\ref{sec:models} estimates AR(7)-GARCH, EGARCH and GJR-GARCH
+specifications with Student-$t$ errors and shows that volatility persistence
+does not vary systematically with item value---a negative result that
+contradicts a gradient visible in a naive proxy.
 Section~\ref{sec:forecast} is the core of the paper: in out-of-sample
 one-day-ahead forecasting, no estimated specification beats a parameter-free
-benchmark on any item.
+benchmark on any item, a result that survives Model Confidence Set testing and
+sensitivity analysis over both the smoothing constant and the cleaning
+procedure. Section~\ref{sec:shock} asks whether any specification withstands
+an exogenous structural break.
 
 That last finding places the paper in the tradition of \citet{HansenLunde2005},
 who compared 330 ARCH-type models and found no evidence that any outperformed
@@ -311,8 +316,8 @@ eliminating, and transaction costs of roughly 15\% would in any case make
 exploitation uneconomic at the magnitudes involved. The predictable mean is
 therefore not a nuisance to be differenced away but direct evidence of the
 market's institutional structure. It also implies that a constant-mean
-specification is misspecified, and motivates the AR(1) mean used throughout
-Section~\ref{sec:models}.
+specification is misspecified, and motivates the autoregressive mean used
+throughout Section~\ref{sec:models}.
 
 \paragraph{A weekly cycle.}
 Figure~\ref{fig:acf} decomposes the dependence structure. The right panel
@@ -489,10 +494,22 @@ RM 50--500      & 1  & 0.891 & 0.891 \\
 Above RM 500    & 5  & 0.878 & 0.797 \\
 \bottomrule
 \end{tabular}
+
+\medskip
+\begin{minipage}{0.92\textwidth}
+\footnotesize Tier counts differ from Table~\ref{tab:rho1} because the two
+items held out in Section~\ref{sec:facts} both fall in the RM 50--500 tier,
+reducing it from three items to one.
+\end{minipage}
 \end{table}
 
-The ordering is, if anything, the reverse of the hypothesis. We regard this as
-a methodological result rather than an economic one: absolute-return
+The ordering is, if anything, the reverse of the hypothesis: the cheapest tier
+is the most persistent. It is worth noting that \citet{Dobrynskaya2025} report
+a ``penny stock effect'' in the same market, whereby cheaper skins earn higher
+percentage returns. These are different moments of the same distribution and
+the parallel is suggestive rather than evidential, but both point towards the
+low-price segment behaving distinctly. We regard our result as a
+methodological one rather than an economic one: absolute-return
 autocorrelation is a raw statistic sensitive to outliers and level shifts,
 while $\alpha+\beta$ is a conditional estimate that is not, and the apparent
 gradient does not survive proper estimation. With as few as one item in a tier,
@@ -992,12 +1009,6 @@ Glaser, T. (2022).
 weapon skin economy in Counter-Strike: Global Offensive.
 \newblock \emph{Spiel$\vert$Formen}, 2022, 139--162.
 
-\bibitem[Nian(2026)]{Nian2026}
-Nian, Z. (2026).
-\newblock The application of event study method in virtual goods markets:
-based on CS:GO skin prices.
-\newblock \emph{Frontiers in Economics and Management}, 7(1), 69--85.
-
 \bibitem[Glosten et al.(1993)]{Glosten1993}
 Glosten, L. R., Jagannathan, R. and Runkle, D. E. (1993).
 \newblock On the relation between the expected value and the volatility of the
@@ -1040,6 +1051,12 @@ Lo, A. W. and MacKinlay, A. C. (1990).
 Nelson, D. B. (1991).
 \newblock Conditional heteroskedasticity in asset returns: a new approach.
 \newblock \emph{Econometrica}, 59(2), 347--370.
+
+\bibitem[Nian(2026)]{Nian2026}
+Nian, Z. (2026).
+\newblock The application of event study method in virtual goods markets:
+based on CS:GO skin prices.
+\newblock \emph{Frontiers in Economics and Management}, 7(1), 69--85.
 
 \bibitem[Newey and West(1987)]{NeweyWest1987}
 Newey, W. K. and West, K. D. (1987).
