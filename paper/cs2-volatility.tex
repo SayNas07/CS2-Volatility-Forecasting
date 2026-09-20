@@ -58,6 +58,8 @@ BIC in-sample on half the panel, ranks last out of sample. The result is robust
 across a sixteen-fold range of EWMA smoothing constants and across four
 cleaning specifications. We argue that volatility in this market carries too
 little stable structure to justify estimating conditional variance parameters.
+The paper appears to be the first formal out-of-sample evaluation of volatility
+forecasts in a virtual asset market.
 
 \medskip
 \noindent\textbf{Keywords:} volatility forecasting, GARCH, virtual economies,
@@ -158,13 +160,34 @@ high-volume selling, treating the 2025 Trade-Up policy change as a brief
 out-of-sample extension. \citet{Nian2026} applies event-study methodology to
 CS:GO skin prices around Valve announcements.
 
-Our paper is distinct from all of these in object. The existing work studies
-\emph{returns}---their level, their cross-section, their risk exposures---or
-\emph{liquidity} around a single event. We study the \emph{forecastability of
-conditional variance}, which to our knowledge has not been examined in any
-virtual asset market. The question of whether standard volatility technology
-transfers to a market without professional intermediation is separate from,
-and not answered by, the finding that skins earn high average returns.
+The published work above studies \emph{returns}---their level, their
+cross-section, their risk exposures---or \emph{liquidity} around a single
+event. We are not aware of any peer-reviewed study of the forecastability of
+conditional variance in a virtual asset market. The question of whether
+standard volatility technology transfers to a market without professional
+intermediation is separate from, and not answered by, the finding that skins
+earn high average returns.
+
+The closest antecedent is an unpublished working paper. \citet{Nikolaenko2025}
+fits ARMA--GARCH(1,1) specifications to two CS:GO skins, tests for
+stationarity and structural breaks, and computes rolling one-step-ahead
+conditional variance forecasts, concluding that predictive power is weak. Our
+paper differs in three respects that we regard as material. First, scope:
+twenty-two items stratified across four price tiers rather than two. Second,
+and centrally, evaluation---forecasts here are scored against parameter-free
+benchmarks using proxy-robust loss functions, with Diebold--Mariano tests and a
+Model Confidence Set, so that ``weak predictive power'' becomes a testable
+comparative claim rather than a qualitative impression. Third, we exploit the
+October 2025 Trade-Up policy change as an identified structural break rather
+than treating breaks solely as a nuisance for stationarity testing.
+
+One substantive disagreement is worth recording. \citet{Nikolaenko2025}
+reports little autocorrelation in skin returns, whereas we reject the null of
+no autocorrelation on every item in our panel (Section~\ref{sec:facts}). The
+discrepancy is most plausibly one of sample breadth---two items against
+twenty-four---but it may also reflect our longer window or the weekly seasonal
+documented below, which a short sample would struggle to detect. We note that
+one item, M4A1-S $\vert$ Decimator, appears in both panels.
 
 \paragraph{Volatility model comparison.}
 \citet{HansenLunde2005} is the canonical reference for the proposition that
@@ -1051,6 +1074,12 @@ Lo, A. W. and MacKinlay, A. C. (1990).
 Nelson, D. B. (1991).
 \newblock Conditional heteroskedasticity in asset returns: a new approach.
 \newblock \emph{Econometrica}, 59(2), 347--370.
+
+\bibitem[Nikolaenko(2025)]{Nikolaenko2025}
+Nikolaenko, A. (2025).
+\newblock Time-series analysis of CS:GO/CS2 skin prices: stationarity, breaks,
+and volatility forecasting.
+\newblock Working paper, December 2025. Available via ResearchGate.
 
 \bibitem[Nian(2026)]{Nian2026}
 Nian, Z. (2026).
