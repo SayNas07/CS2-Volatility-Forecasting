@@ -1,0 +1,18 @@
+/data/
+/figures/
+__pycache__/
+*.pyc
+.env
+.venv/
+venv/
+
+# LaTeX build artefacts
+paper/*.aux
+paper/*.log
+paper/*.out
+paper/*.bbl
+paper/*.blg
+paper/*.synctex.gz
+paper/*.toc
+paper/*.fdb_latexmk
+paper/*.fls
